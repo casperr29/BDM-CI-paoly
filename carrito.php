@@ -19,7 +19,7 @@
 
 <div class="heading">
    <h3>shopping cart</h3>
-   <p> <a href="home.php">home</a></p>
+   <p> <a href="dashboard.php">home</a></p>
 </div>
 
 <section class="shopping-cart">
