@@ -29,7 +29,8 @@
             <div class="icons">
                 <a href="buscador.php" class="bx bx-search-alt"></a>
                 <a href="perfil.php" class="bx bx-user"></a>
-                <div id="login-btn" href="carrito.php" class="bx bx-cart"><span>(00)</div>
+                <a href="carrito.php" class="bx bx-cart"></a>
+
             </div>
 
         </div>

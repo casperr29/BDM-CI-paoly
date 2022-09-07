@@ -23,9 +23,6 @@
             <nav class="navbar">
                 <a href="login.php">inicio</a>
                 <a href="login.php">categorias</a>
-                <a href="login.php">mas vendidos</a>
-                <a href="login.php">nuevos</a>
-                <a href="login.php">vistos anteriormente</a>
             </nav>
         </div> 
     </header>
