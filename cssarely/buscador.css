@@ -1,0 +1,65 @@
+:root{
+    --white: #fff;
+     --red: #fe3a29;
+     --pink1:#fca699;
+     --pink: #e2869b;
+     --dark-color: #c9729f;
+     --black: #583b7e;
+     --light-color: #ffe4aa;
+     --border: .1rem solid rgba(0, 0, 0, .1);
+     --border-hover: .1rem solid var(--black);
+     --box-shadow:0 .5rem 1rem rgba(0, 0, 0, .1);
+     }
+
+     .heading{
+        min-height: 30vh;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        gap:1rem;
+        background: url(../img/heading-bg.webp) no-repeat;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+     }
+     
+     .heading h3{
+        font-size: 5rem;
+        color:var(--black);
+        text-transform: uppercase;
+     }
+ 
+ .heading p{
+    font-size: 2.5rem;
+    color:var(--pink);
+ }
+ 
+ .heading p a{
+    color:var(--dark-color);
+ }
+ 
+ .heading p a:hover{
+    text-decoration: underline;
+ }
+
+.search-form form{
+    max-width: 1200px;
+    margin:0 auto;
+    display: flex;
+    gap:1rem;
+ }
+ 
+ .search-form form .btn{
+    margin-top: 0;
+ }
+ 
+ .search-form form .box{
+    width: 100%;
+    padding:1.2rem 1.4rem;
+    border:var(--border);
+    font-size: 2rem;
+    color:var(--black);
+    background-color: var(--pink1);
+    border-radius: .5rem;
+ }
