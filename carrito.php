@@ -18,8 +18,8 @@
 <?php include 'header.php'; ?>
 
 <div class="heading">
-   <h3>shopping cart</h3>
-   <p> <a href="dashboard.php">home</a></p>
+   <h3>Carrito de compras</h3>
+   <p> <a href="dashboard.php">Regresar al inicio</a></p>
 </div>
 
 <section class="shopping-cart">
@@ -30,18 +30,18 @@
       
       <div class="box">
 
-      <?php echo '<p class="empty">your cart is empty</p>'; ?>
+      <?php echo '<p class="empty">Tu carrito esta vacio</p>'; ?>
    </div>
 
    <div style="margin-top: 2rem; text-align:center;">
-      <a href="cart.php?delete_all" class="delete-btn">delete all</a>
+      <a href="cart.php?delete_all" class="delete-btn">Vaciar carrito</a>
    </div>
 
    <div class="cart-total">
-      <p>grand total : <span>$</span></p>
+      <p>total a pagar : <span>$</span></p>
       <div class="flex">
-         <a href="shop.php" class="option-btn">continue shopping</a>
-         <a href="checkout.php" class="btn"> proceed to checkout</a>
+         <a href="Dashboard.php" class="option-btn">Seguir comprando</a>
+         <a href="checkout.php" class="btn"> Pagar</a>
       </div>
    </div>
 

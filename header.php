@@ -21,7 +21,7 @@
         <div class="header-1">
 
             <div class="logo-details"> 
-                <img src="img/logo2.png" alt="LogoImg"> 
+                <img href="dashboard.php" src="img/logo2.png" alt="LogoImg"> 
             </div>
 
 
