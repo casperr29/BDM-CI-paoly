@@ -41,18 +41,17 @@
 
 <div class="box-container">
 
-  
-  <form action="" method="post" class="box">
-   <img class="image" src="img/freefall.jpg">
-   <div class="name">Alice</div>
-   <div class="price">100</div>
-   <input type="number" min="1" name="product_quantity" value="1" class="qty">
-   <input type="hidden" name="product_name" value="Alice">
-   <input type="hidden" name="product_price" value="100">
-   <input type="hidden" name="product_image" value="image">
-   <input type="submit" value="Favorito" name="wishlist" class="btn">
-   <input type="submit" value="Agregar al Carrito" name="cart" class="btn">
-  </form>
+    <div class="box">
+        <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
+        <div class="name">Alice</div>
+        <div class="price">100</div>
+        <input type="number" min="1" name="product_quantity" value="1" class="qty">
+        <input type="hidden" name="product_name" value="Alice">
+        <input type="hidden" name="product_price" value="100">
+        <input type="hidden" name="product_image" value="image">
+        <button value="Favorito" name="wishlist" class="btn">Favorito</button>
+        <button value="Agregar al Carrito" name="cart" class="btn">Agregar al Carrito</button>
+    </div>
   
 </div>
 

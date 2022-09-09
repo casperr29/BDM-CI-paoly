@@ -1,7 +1,6 @@
 :root{
     --white: #fff;
     --red: #fe3a29;
-    --pink2:#e6d2cf;
     --pink1:#fca699;
     --pink: #e2869b;
     --dark-color: #c9729f;
@@ -13,7 +12,7 @@
 }
  
  
-*{
+ *{
      font-family: 'Poppins', sans-serif;
      margin:0; padding:0;
      box-sizing: border-box;
@@ -21,28 +20,6 @@
      text-decoration: none;
      transition:all .2s linear;
  }
-
-
-
- .btn{
-   display: inline-block;
-   margin-top: 1rem;
-   padding:1rem 3rem;
-   cursor: pointer;
-   color:var(--light-color);
-   font-size: 1.8rem;
-   border-radius: .5rem;
-   text-transform: capitalize;
-}
-
-.btn:hover{
-   background-color: var(--black);
-}
-
-.btn{
-   background-color: var(--dark-color);
-}
-
 
 .heading h3{
     font-size: 5rem;
@@ -71,7 +48,7 @@ text-decoration: underline;
  }
  
  .display-order p{
-    background-color: var(--pink2);
+    background-color: var(--pink1);
     color:var(--black);
     font-size: 2rem;
     padding:1rem 1.5rem;
@@ -87,7 +64,7 @@ text-decoration: underline;
  .display-order .grand-total{
     margin-top: 2rem;
     font-size: 2.5rem;
-    color:var(--pink);
+    color:var(--dark-color);
  }
  
  .display-order .grand-total span{
@@ -99,7 +76,7 @@ text-decoration: underline;
     padding:2rem;
     margin:0 auto;
     border:var(--border);
-    background-color: var(--pink2);
+    background-color: var(--dark-color);
     border-radius: .5rem;
  }
  
@@ -127,13 +104,29 @@ text-decoration: underline;
  }
  
  .checkout form .flex select,
- .checkout form .flex input{
+ .checkout form .flex input,
+ .checkout form .flex textarea{
     border:var(--border);
     width: 100%;
     border-radius: .5rem;
-    width: 100%;
     background-color: var(--white);
     padding:1.2rem 1.4rem;
     font-size: 1.8rem;
     margin:1rem 0;
+ }
+
+ .form-check{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   width: 100%;
+ }
+
+ .checkout form .flex input[type=checkbox]{
+   width:30px;
+ }
+
+ .form-check-label{
+   font-size: 18px;
+   color:var(--black);
  }

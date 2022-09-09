@@ -22,11 +22,10 @@
 
       <nav class="navbar">
          <a href="dashboard.php">Inicio</a>
-         <a href="producto-admin.php">Productos</a>
+         <a href="perfil-admin.php">Panel de administrador</a>
       </nav>
 
       <div class="icons">
-
 
       </div>
 
@@ -34,32 +33,24 @@
 
 </header>
 
-    <section class="dashboard">
+<section class="show-products">
 
-        <h1 class="title">dashboard</h1>
-        <div class="box-container">
+<div class="box-container">
 
-            <div class="box">
+   <div class="box">
 
-                <h3><?php echo 1; ?></h3>
-                <p>cuentas de compradores</p>
-            </div>
+   <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
+        <div class="name">Free Fall</div>
+        <div class="price">100</div>
+      <a class="option-btn">update</a>
+      <a class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+   </div>
+   
+   
+   
+</div>
 
-            <div class="box">
-
-                <h3><?php echo 1; ?></h3>
-                <p>cuentas de vendedores</p>
-            </div>
-
-            <div class="box">
-
-                <h3><?php echo 2; ?></h3>
-                <p>cuentas en total</p>
-            </div>
-
-        </div>
-
-    </section>
+</section>
 
 </body>
 </html>

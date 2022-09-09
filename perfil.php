@@ -3,7 +3,8 @@
 <head>
      <meta charset= "UTF - 8" >
      <meta name= "viewport" content = "width = device - width , initial - scale = 1.0">
-     <title> User Profile Page </title>
+     <link rel="shortcut icon" href="img/quran.png">
+     <title>Perfil</title>
      <link rel="stylesheet" type="text/css" href = "cssarely/perfil.css"/>
 
 </head>
