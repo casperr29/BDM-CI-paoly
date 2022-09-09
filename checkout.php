@@ -19,12 +19,12 @@
 
 <div class="heading">
    <h3>checkout</h3>
-   <p> <a href="dashboard.php">home</a> / checkout </p>
+   <p> <a href="dashboard.php">Regresar al inicio</a></p>
 </div>
 
 <section class="display-order">
 
-     <?php echo '<p class="empty">your cart is empty</p>'; ?>
+     <?php echo '<p class="empty">Tu carrito esta vacio</p>'; ?>
    <div class="grand-total"> total a pagar: <span>$</span> </div>
 
 </section>
@@ -47,38 +47,38 @@
             <input type="email" name="email" required placeholder="Ingrese su correo">
          </div>
          <div class="inputBox">
-            <span>payment method :</span>
+            <span>Metodo de pago:</span>
             <select name="method">
-               <option value="credit card">credit card</option>
-               <option value="paypal">paypal</option>
+               <option value="credit card">Terjeta de crédito</option>
+               <option value="paypal">Paypal</option>
             </select>
          </div>
          <div class="inputBox">
-            <span>address line 01 :</span>
+            <span>Calle y número:</span>
             <input type="number" min="0" name="flat" required placeholder="e.g. flat no.">
          </div>
          <div class="inputBox">
-            <span>address line 01 :</span>
+            <span>Colonia:</span>
             <input type="text" name="street" required placeholder="e.g. street name">
          </div>
          <div class="inputBox">
-            <span>city :</span>
-            <input type="text" name="city" required placeholder="e.g. mumbai">
+            <span>Ciudad:</span>
+            <input type="text" name="city" required placeholder="e.g. monterrey">
          </div>
          <div class="inputBox">
-            <span>state :</span>
-            <input type="text" name="state" required placeholder="e.g. maharashtra">
+            <span>Estado:</span>
+            <input type="text" name="state" required placeholder="e.g. nuevo león">
          </div>
          <div class="inputBox">
-            <span>country :</span>
-            <input type="text" name="country" required placeholder="e.g. india">
+            <span>Pais:</span>
+            <input type="text" name="country" required placeholder="e.g. méxico">
          </div>
          <div class="inputBox">
-            <span>pin code :</span>
-            <input type="number" min="0" name="pin_code" required placeholder="e.g. 123456">
+            <span>Codigo postal:</span>
+            <input type="number" min="0" name="pin_code" required placeholder="e.g. ">
          </div>
       </div>
-      <input type="submit" value="order now" class="btn" name="order_btn">
+      <input type="submit" value="Hacer compra" class="btn" name="order_btn">
    </form>
 
 </section>

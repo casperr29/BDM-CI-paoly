@@ -49,7 +49,7 @@
 
 .Inicio{
     min-height: 70vh;
-    background:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(../img/home-bg.jpg) no-repeat;
+    background:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(../img/home-bg1.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -70,7 +70,7 @@
  
  .Inicio .content p{
     font-size:1.8rem;
-    color:var(--light-white);
+    color:var(--pink1);
     padding:1rem 0;
     line-height: 1.5;
  }
