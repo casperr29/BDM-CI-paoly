@@ -55,27 +55,27 @@
          </div>
          <div class="inputBox">
             <span>Calle y número:</span>
-            <input type="number" min="0" name="flat" required placeholder="e.g. flat no.">
+            <input type="number" min="0" name="flat" required placeholder="Santiago Tapia #826">
          </div>
          <div class="inputBox">
             <span>Colonia:</span>
-            <input type="text" name="street" required placeholder="e.g. street name">
+            <input type="text" name="street" required placeholder="Villa Vista">
          </div>
          <div class="inputBox">
             <span>Ciudad:</span>
-            <input type="text" name="city" required placeholder="e.g. monterrey">
+            <input type="text" name="city" required placeholder="Monterrey">
          </div>
          <div class="inputBox">
             <span>Estado:</span>
-            <input type="text" name="state" required placeholder="e.g. nuevo león">
+            <input type="text" name="state" required placeholder="Nuevo León">
          </div>
          <div class="inputBox">
             <span>Pais:</span>
-            <input type="text" name="country" required placeholder="e.g. méxico">
+            <input type="text" name="country" required placeholder="México">
          </div>
          <div class="inputBox">
             <span>Codigo postal:</span>
-            <input type="number" min="0" name="pin_code" required placeholder="e.g. ">
+            <input type="number" min="0" name="pin_code" required placeholder="66548 ">
          </div>
       </div>
       <input type="submit" value="Hacer compra" class="btn" name="order_btn">

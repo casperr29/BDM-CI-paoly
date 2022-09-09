@@ -37,7 +37,7 @@
     </section>
     <section class="Vendidos">
            
-   <h1 class="title">latest products</h1>
+   <h1 class="title">Añadidos recientemente</h1>
 
 <div class="box-container">
 
@@ -56,9 +56,7 @@
   
 </div>
 
-<div class="load-more" style="margin-top: 2rem; text-align:center">
-   <a href="shop.php" class="option-btn">load more</a>
-</div>
+
     </section>
 
 </body>
