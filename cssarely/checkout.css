@@ -70,6 +70,7 @@ text-decoration: underline;
     padding-bottom: 0;
  }
  
+ 
  .display-order p{
     background-color: var(--pink2);
     color:var(--black);
@@ -137,3 +138,5 @@ text-decoration: underline;
     font-size: 1.8rem;
     margin:1rem 0;
  }
+
+ 

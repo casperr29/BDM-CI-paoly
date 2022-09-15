@@ -31,23 +31,23 @@
          <div class="flex">
             <div class="inputBox">
                <span>Nombre:</span>
-               <input type="text" name="name" required placeholder="Ingrese el nombre del producto">
+               <input type="text" id="name" name="name" placeholder="Ingrese el nombre del producto">
             </div>
             <div class="inputBox">
                <span>Precio:</span>
-               <input type="number" name="price" required placeholder="Ingrese el precio">
+               <input type="number" id="price" name="price" placeholder="Ingrese el precio">
             </div>
             <div class="inputBox">
                <span>Autor:</span>
-               <input type="email" name="autor" required placeholder="Ingrese el autor">
+               <input type="email" id="autor" name="autor" placeholder="Ingrese el autor">
             </div>
             <div class="inputBox">
                <span>Año:</span>
-               <input type="text" name="year" required placeholder="1999">
+               <input type="text" id="year" name="year" placeholder="1999">
             </div>
             <div class="inputBox">
                <span>Descripción:</span>
-               <textarea type="text" required placeholder="Ingrese la descripción"></textarea>
+               <textarea type="text" id="descripcion" placeholder="Ingrese la descripción"></textarea>
             </div>
 
             <div class="inputBox">
@@ -114,12 +114,26 @@
                </div>
             </div>
          </div>
-         <input type="submit" value="Dar de alta" class="btn" name="order_btn">
+         <input value="Dar de alta" class="btn" name="order_btn" onclick=vDatosIncompletosProducto()>
       </form>
 
    </section>
 
+   <template id="AlertDatosIncompletos">
+            <swal-title>
+                Ups, te faltan datos
+            </swal-title>
+            <swal-html>
+                <p>por favor llena todos los datos primero</p>
+            </swal-html>
+            <swal-icon type="warning" color="red"></swal-icon>
+            <swal-button type="confirm" color="#c9729f">
+                OK
+            </swal-button>
+        </template>
 
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="jsarely/checkout.js"></script>
 
 </body>
 

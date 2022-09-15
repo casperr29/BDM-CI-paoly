@@ -77,9 +77,8 @@ text-decoration: underline;
 
 .shopping-cart .box-container{
     max-width: 1200px;
-    margin:0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 30rem);
+    margin: 15px;
+    display: inline-flex;
     align-items: center;
     gap:1.5rem;
     justify-content: center;
@@ -112,7 +111,7 @@ text-decoration: underline;
  }
  
  .shopping-cart .box-container .box img{
-    height: 30rem;
+    height: 15rem;
  }
  
  .shopping-cart .box-container .box .name{

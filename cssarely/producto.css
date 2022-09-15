@@ -5,31 +5,9 @@ html, body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
   }
-   
-  .header-2{
-    background:var(--pink);
-  }
   
-  .header-2 .navbar{
-    text-align: center;
-  }
-  
-  .header-2 .navbar a{
-    color:#fff; 
-    display: inline-block;
-    padding:1.2rem;
-    font-size: 1.7rem;
-  }
-  
-  .header-2 .navbar a:hover{
-    background:var(--dark-color);
-  }
-  
-  .header-2.active{
-    position:fixed;
-    top:0; left:0; right:0;
-    z-index: 1000;
-  
+  .navbar{
+    display: list-item !important;
   }
 
   .container {

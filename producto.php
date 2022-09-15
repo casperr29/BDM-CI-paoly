@@ -23,10 +23,14 @@
     <header>
         <?php include 'header.php' ?>
         <div class="header-2">
-            <nav class="navbar">
+        <nav class="navbar" style="display: block">
                 <a href="dashboard.php">inicio</a>
+                <a href="login.php">categorias</a>
+                <a href="login.php">mas vendidos</a>
+                <a href="login.php">nuevos</a>
+                <a href="login.php">vistos anteriormente</a>
             </nav>
-        </div>
+        </div> > 
     </header>
 
     <div class="cols__container">
@@ -100,10 +104,13 @@
                 <!-- Product Pricing -->
                 <div class="product-price">
                     <span>148$</span>
-                    <button class="btn cart-btn">Add to cart</button>
+                    <button class="btn cart-btn" onclick=vCarrito()>Add to cart</button>
                 </div>
             </div>
         </main>
     </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="jsarely/checkout.js"></script>
 
 </body>

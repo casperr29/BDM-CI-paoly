@@ -112,3 +112,7 @@ form{
     }
     
 }
+
+.swal2-styled {
+    box-shadow: none !important;
+  }

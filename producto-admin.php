@@ -42,9 +42,29 @@
    <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
         <div class="name">Free Fall</div>
         <div class="price">100</div>
-      <a class="option-btn">update</a>
-      <a class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+      <a class="option-btn" onclick=productoAprobado()>update</a>
+      <a class="delete-btn" onclick=productoNoAprobado()>delete</a>
    </div>
+
+   <div class="box">
+
+   <a href="producto.php"><img class="image" src="img/castillo_vagabundo.jpg"></a>
+        <div class="name">El Castillo Vagabundo</div>
+        <div class="price">90</div>
+      <a class="option-btn" onclick=productoAprobado()>update</a>
+      <a class="delete-btn" onclick=productoNoAprobado()>delete</a>
+   </div>
+
+   <div class="box">
+
+   <a href="producto.php"><img class="image" src="img/leyenda_de_espadas.jpg"></a>
+        <div class="name">Una Leyenda de Espadas</div>
+        <div class="price">300</div>
+      <a class="option-btn" onclick=productoAprobado()>update</a>
+      <a class="delete-btn" onclick=productoNoAprobado()>delete</a>
+   </div>
+
+   
    
    
    
@@ -52,5 +72,8 @@
 
 </section>
 
+
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="jsarely/producto-admin.js"></script>
 </body>
 </html>

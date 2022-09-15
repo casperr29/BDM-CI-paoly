@@ -22,16 +22,16 @@
                     <header>Iniciar Sesión</header>
                     <form action="#">
                         <div class="field input-field">
-                            <input type="email" placeholder="Correo eletrónico" class="input">
+                            <input type="email" id="iEmail" placeholder="Correo eletrónico" class="input">
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Contraseña" class="password">
+                            <input type="password" id="iPass" placeholder="Contraseña" class="password">
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
                         <div class="field button-field">
-                            <button>Iniciar sesión</button>
+                            <button id="iniciarSesion" onclick=validacionInicio()>Iniciar sesión</button>
                         </div>
                     </form>
 
@@ -49,33 +49,35 @@
                     <header>Crear Cuenta</header>
                     <form action="#">
                         <div class="field input-field">
-                            <input type="email" placeholder="Correo electrónico" class="input">
+                            <input type="email" id="email" placeholder="Correo electrónico" class="input">
                         </div>
 
                         <div class="field input-field">
-                            <input type="email" placeholder="Nombre completo" class="input">
+                            <input type="text" id="nombre" placeholder="Nombre completo" class="input">
                         </div>
 
                         <div class="field input-field">
-                            <input type="email" placeholder="Nombre de usuario" class="input">
+                            <input type="text" id="user" placeholder="Nombre de usuario" class="input">
+                            <span id="txUser"></span>
                         </div>
 
                         <div class="field input-field">
-                            <input type="date" placeholder="Fecha de nacimiento" class="input">
+                            <input type="date" id="fechaNacimiento" class="Fecha" placeholder="Fecha de nacimiento" class="input" onclick=fechaActual()>
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Contraseña" class="password">
+                            <input type="password" id="pass" placeholder="Contraseña" class="password">
+                            <span id="txPass"></span>
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Confirma tu contraseña" class="password">
+                            <input type="password" id="confirmPass" placeholder="Confirma tu contraseña" class="password">
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
 
                         <div class="field button-field">
-                            <button >Iniciar sesión</button>
+                            <button id="Registrar" onclick=validacionRegistro()>Iniciar sesión</button>
                         </div>
                     </form>
 
@@ -86,7 +88,24 @@
             </div>
         </section>
 
+        <template id="AlertDatosIncompletos">
+            <swal-title>
+                Sabemos que quieres entrar pero primero
+            </swal-title>
+            <swal-html>
+                <p>por favor llena todos los datos</p>
+            </swal-html>
+            <swal-icon type="warning" color="red"></swal-icon>
+            <swal-button type="confirm" color="#c9729f">
+                OK
+            </swal-button>
+        </template>
+
         <!-- JavaScript -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="jsarely/jquery-3.6.0.min.js"></script>
         <script src="jsarely/login.js"></script>
+        <script src="jsarely/validaciones_login y registro.js"></script>
+
     </body>
 </html>

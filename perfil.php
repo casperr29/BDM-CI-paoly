@@ -40,6 +40,19 @@
           </nav>
 
           <div class="photos">
+            <div class="box" style="height: 20rem;">
+                <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
+            </div>
+            <div class="box" style="height: 20rem;">
+                <a href="producto.php"><img class="image" src="img/blue_period.jpg"></a>
+            </div>
+            <div class="box" style="height: 20rem;">
+                <a href="producto.php"><img class="image" src="img/castillo_vagabundo.jpg"></a>
+            </div>
+            <div class="box" style="height: 20rem;">
+                <a href="producto.php"><img class="image" src="img/el_nombre_del_viento.jpg"></a>
+            </div>
+
           </div>
         </div>
 

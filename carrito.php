@@ -29,9 +29,24 @@
 
    <div class="box-container">
       
-      <div class="box">
+      <div class="box" style="display: contents;">
+         <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
+         <div class="name">Alice</div>
+         <div class="price">$140</div>
+      </div>
 
-      <?php echo '<p class="empty">Tu carrito esta vacio</p>'; ?>
+      <div class="box" style="display: contents;">
+         <a href="producto.php"><img class="image" src="img/heartstopper.jpg"></a>
+         <div class="name">Volumen uno</div>
+         <div class="price">$200</div>
+      </div>
+
+      <div class="box" style="display: contents;">
+         <a href="producto.php"><img class="image" src="img/libro_troll.jpg"></a>
+         <div class="name">El libro troll</div>
+         <div class="price">$100</div>
+      </div>
+      <!--</*?php echo '<p class="empty">Tu carrito esta vacio</p>'; ?>-->
    </div>
 
    <div style="margin-top: 2rem; text-align:center;">
