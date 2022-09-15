@@ -48,18 +48,17 @@
 	<main class="l-main">
 
             <section class="home" id="home">
-                <div class="home__container bd-grid">
-					<div class="home__data">
+            <div class="home__container bd-grid" style="position: relative;">
+                    <div class="home__img" style="position: absolute; display: contents;">
+                        <img src="img/libros.png" alt="" style="">
+                        
+                    </div>
+					<div class="home__data" style="position: absolute;">
                         <h1 class="home__title">Last Chance<br> Girls</h1>
                         <p class="home__description">El lugar donde solo <br> encuentras las cosas una vez.</p>
                         <a href="login.php" class="home__button">Registrarse</a>
                     </div>
-                    <div class="home__img">
-                        <img src="img/libros.png" alt="">
-                        
-                    </div>
-
-                    
+    
                 </div>
             </section>
         </main>
