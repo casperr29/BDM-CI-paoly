@@ -23,6 +23,8 @@
       <nav class="navbar">
          <a href="dashboard.php">Inicio</a>
          <a href="producto-admin.php">Productos</a>
+         <a href="pedidos-admin.php">Pedidos</a>
+
       </nav>
 
       <div class="icons">

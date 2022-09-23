@@ -1,0 +1,95 @@
+:root{
+    --red: #fe3a29;
+    --pink1:#fca699;
+    --pink: #e2869b;
+    --dark-color: #c9729f;
+    --black: #583b7e;
+    --light-color: #ffe4aa;
+    --border: .1rem solid rgba(0, 0, 0, .1);
+    --border-hover: .1rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0, 0, 0, .1);
+    }
+
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    transition:all .2s linear;
+}
+
+.header-2{
+    background:var(--pink);
+}
+
+.header-2 .navbar{
+    text-align: center;
+}
+
+.header-2 .navbar a{
+    color:#fff;
+    display: inline-block;
+    padding:1.2rem;
+    font-size: 1.7rem;
+}
+
+.header-2 .navbar a:hover{
+    background:var(--dark-color);
+}
+
+.header-2.active{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index: 1000;
+}
+
+.orders .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    justify-content: center;
+    gap:1.5rem;
+    max-width: 1200px;
+    margin:0 auto;
+    align-items: flex-start;
+ }
+ 
+ .orders .box-container .box{
+    background-color: var(--white);
+    padding:2rem;
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+ }
+ 
+ .orders .box-container .box p{
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    color:var(--dark-color);
+ }
+ 
+ .orders .box-container .box p span{
+    color:var(--black);
+ }
+
+ .orders .box-container .box img{
+    height: 35rem;
+
+
+ }
+
+ .orders .box-container .box form{
+    text-align: center;
+ }
+ 
+ .orders .box-container .box form select{
+    border-radius: .5rem;
+    margin:.5rem 0;
+    width: 100%;
+    background-color: var(--light-color);
+    border:var(--border);
+    padding:1.2rem 1.4rem;
+    font-size: 1.8rem;
+    color:var(--black);
+ }
