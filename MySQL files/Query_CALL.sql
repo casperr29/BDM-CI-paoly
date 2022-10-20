@@ -12,3 +12,5 @@ CALL sp_PerfilUsuario(4,1);
 UPDATE `usuario`
 SET `Rol` = 2
 WHERE `UsuarioID` = 4;
+
+SELECT* FROM usuario;

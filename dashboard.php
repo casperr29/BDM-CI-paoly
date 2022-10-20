@@ -1,3 +1,16 @@
+<?php 
+    include_once 'includes/usuario.php';
+    include_once 'includes/sesion_usuario.php';
+
+    if(isset($_SESSION['usuario'])){
+        //echo "Hay sesión";
+        $usuario->setUsuario($usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario());
+        include_once "dashboard.php";
+    }  else {
+        //echo "Login";
+        include_once "login.php";
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,11 +34,11 @@
         <?php include 'header.php'?> 
         <div class="header-2">
             <nav class="navbar">
-                <a href="login.php">inicio</a>
-                <a href="login.php">categorias</a>
-                <a href="login.php">mas vendidos</a>
-                <a href="login.php">nuevos</a>
-                <a href="login.php">vistos anteriormente</a>
+                <a href="dashboard.php">inicio</a>
+                <a href="dashboard.php">categorias</a>
+                <a href="dashboard.php">mas vendidos</a>
+                <a href="dashboard.php">nuevos</a>
+                <a href="dashboard.php">vistos anteriormente</a>
             </nav>
         </div> > 
     </header>

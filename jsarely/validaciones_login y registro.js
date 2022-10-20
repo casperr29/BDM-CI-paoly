@@ -160,6 +160,6 @@ function validacionRegistro(){
 
     vUser();
     vPass();
-    vconfirmPass()
-    vDatosIncompletosRegistro()
+    vconfirmPass();
+    vDatosIncompletosRegistro();
 }

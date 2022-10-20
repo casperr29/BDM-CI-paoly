@@ -50,26 +50,26 @@
             <div class="form signup">
                 <div class="form-content">
                     <header>Crear Cuenta</header>
-                    <form action="#">
+                    <form action="apiUsuarios.php" method="POST">
                         <div class="field input-field">
-                            <input type="email" id="email" placeholder="Correo electrónico" class="input">
+                            <input type="email" name="email" id="email" placeholder="Correo electrónico" class="input">
                         </div>
 
                         <div class="field input-field">
-                            <input type="text" id="nombre" placeholder="Nombre completo" class="input">
+                            <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" class="input">
                         </div>
 
                         <div class="field input-field">
-                            <input type="text" id="user" placeholder="Nombre de usuario" class="input">
+                            <input type="text" name="nickname" id="user" placeholder="Nombre de usuario" class="input">
                             <span id="txUser"></span>
                         </div>
 
                         <div class="field input-field">
-                            <input type="date" id="fechaNacimiento" class="Fecha" placeholder="Fecha de nacimiento" class="input" onclick=fechaActual()>
+                            <input type="date" name="fechaNacimiento" id="fechaNacimiento" class="Fecha" placeholder="Fecha de nacimiento" class="input" onclick=fechaActual()>
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" id="pass" placeholder="Contraseña" class="password">
+                            <input type="password" name="contrasenia" id="pass" placeholder="Contraseña" class="password">
                             <span id="txPass"></span>
                         </div>
 

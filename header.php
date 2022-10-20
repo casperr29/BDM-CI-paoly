@@ -25,10 +25,21 @@
             </div>
 
 
-
+            
             <div class="icons">
                 <a href="buscador.php" class="bx bx-search-alt"></a>
-                <a href="perfil.php" class="bx bx-user"></a>
+                <?php  if($usuario->getRol()=="comprador"){
+                    echo '<a href="perfil.php" class="bx bx-user"></a>';
+                };?>
+                <?php  if($usuario->getRol()=="vendedor"){
+                    echo '<a href="perfil-vendedor.php" class="bx bx-user"></a>';
+                };?>
+                <?php  if($usuario->getRol()=="administrador"){
+                    echo '<a href="perfil-admin.php" class="bx bx-user"></a>';
+                };?>
+                <?php  if($usuario->getRol()=="superadministrador"){
+                    echo '<a href="perfil-admin.php" class="bx bx-user"></a>';
+                };?>
                 <a href="carrito.php" class="bx bx-cart"></a>
 
             </div>

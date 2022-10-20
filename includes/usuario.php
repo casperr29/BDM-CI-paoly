@@ -31,5 +31,18 @@
         public function getRol(){
             return $this->rol;
         }
+
+        function obtenerUsuarios(){
+            $query = $this->connect()->query('SELECT* FROM usuario');
+
+            return $query;
+        }
+
+        function insertarUsuario(string $correo, $nickname, $contrasenia, $nombre, $fechaNacimiento){
+            $query = $this->connect()->prepare('CALL sp_RegistroUsuario(:correo,:nickname,:contrasenia,:nombre,:fechaNacimiento)');
+            $query->execute(['correo' => $correo, 'nickname' => $nickname, 'contrasenia' => $contrasenia, 'nombre' => $nombre, 'fechaNacimiento' => $fechaNacimiento]);
+
+            return $query;
+        }
     }
 ?>

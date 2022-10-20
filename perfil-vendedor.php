@@ -1,3 +1,19 @@
+<?php 
+    include_once 'includes/usuario.php';
+    include_once 'includes/sesion_usuario.php';
+
+    $usuarioSesion = new UsuarioSesion();
+    $usuario = new Usuario();
+
+    if(isset($_SESSION['usuario'])){
+        //echo "Hay sesión";
+        $usuario->setUsuario($usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario());
+        include_once "perfil-vendedor.php";
+    }  else {
+        //echo "Login";
+        include_once "login.php";
+    }
+?>
 <!DOCTYPE html>
 <html lang= "en" >
 <head>
