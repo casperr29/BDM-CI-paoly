@@ -24,7 +24,7 @@
          <a href="dashboard.php">Inicio</a>
          <a href="producto-admin.php">Productos</a>
          <a href="pedidos-admin.php">Pedidos</a>
-
+         <a href="includes/logout.php">salir</a>
       </nav>
 
       <div class="icons">

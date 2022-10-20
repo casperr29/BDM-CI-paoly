@@ -21,26 +21,26 @@
         <div class="header-1">
 
             <div class="logo-details"> 
-                <img href="login.php" src="img/logo2.png" alt="LogoImg"> 
+                <img href="index.php" src="img/logo2.png" alt="LogoImg"> 
             </div>
 
 
 
             <div class="icons">
-                <a href="login.php" class="bx bx-search-alt"></a>
-                <a href="login.php" class="bx bx-user"></a>
-                <div href="login.php"  id="login-btn" class="bx bx-cart"></div>
+                <a href="index.php" class="bx bx-search-alt"></a>
+                <a href="index.php" class="bx bx-user"></a>
+                <div href="index.php"  id="login-btn" class="bx bx-cart"></div>
             </div>
 
         </div>
 
         <div class="header-2">
             <nav class="navbar">
-                <a href="login.php">inicio</a>
-                <a href="login.php">categorias</a>
-                <a href="login.php">mas vendidos</a>
-                <a href="login.php">nuevos</a>
-                <a href="login.php">vistos anteriormente</a>
+                <a href="index.php">inicio</a>
+                <a href="index.php">categorias</a>
+                <a href="index.php">mas vendidos</a>
+                <a href="index.php">nuevos</a>
+                <a href="index.php">vistos anteriormente</a>
             </nav>
         </div> 
     
@@ -56,7 +56,7 @@
 					<div class="home__data" style="position: absolute;">
                         <h1 class="home__title">Last Chance<br> Girls</h1>
                         <p class="home__description">El lugar donde solo <br> encuentras las cosas una vez.</p>
-                        <a href="login.php" class="home__button">Registrarse</a>
+                        <a href="index.php" class="home__button">Registrarse</a>
                     </div>
     
                 </div>

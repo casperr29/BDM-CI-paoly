@@ -18,18 +18,23 @@
             <div class="form login">
                 <div class="form-content">
                     <header>Iniciar Sesión</header>
-                    <form action="#">
+                    <form action="" method="POST">
+                        <?php
+                            if(isset($errorLogin)){
+                                echo $errorLogin;
+                            }
+                        ?>
                         <div class="field input-field">
-                            <input type="email" id="iEmail" placeholder="Correo eletrónico" class="input">
+                            <input type="text" name="userSession" id="iEmail" placeholder="Correo eletrónico" class="input">
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" id="iPass" placeholder="Contraseña" class="password">
+                            <input type="password" name="passSession" id="iPass" placeholder="Contraseña" class="password">
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
                         <div class="field button-field">
-                            <button id="iniciarSesion" onclick=validacionInicio()>Iniciar sesión</button>
+                            <button type="submit" value="login now" id="iniciarSesion" onclick=validacionInicio()>Iniciar sesión</button>
                         </div>
                     </form>
 

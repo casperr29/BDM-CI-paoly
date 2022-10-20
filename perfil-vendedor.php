@@ -14,6 +14,7 @@
         <div class="header-2">
             <nav class="navbar">
                 <a href="dashboard.php">inicio</a>
+                <a href="includes/logout.php">salir</a>
             </nav>
         </div> 
     </header>
