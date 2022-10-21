@@ -50,9 +50,6 @@
         
         header("location: index.php");
                 
-    } else {
-        //echo "no se incerto el usuario";
-         header("location: index.php");
-    }
+    } 
       
 ?>
