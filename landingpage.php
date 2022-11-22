@@ -49,8 +49,8 @@
 
             <section class="home" id="home">
             <div class="home__container bd-grid" style="position: relative;">
-                    <div class="home__img" style="position: absolute; display: contents;">
-                        <img src="img/libros.png" alt="" style="">
+                    <div class="home__img">
+                        <img src="img/libros.png" >
                         
                     </div>
 					<div class="home__data" style="position: absolute;">

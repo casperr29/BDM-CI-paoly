@@ -1,3 +1,22 @@
+<?php 
+    include_once 'includes/usuario.php';
+    include_once 'includes/sesion_usuario.php';
+
+    $usuarioSesion = new UsuarioSesion();
+    $usuarioTemp = $usuarioSesion->getCurrentUsuario();
+    $passTemp = $usuarioSesion->getCurrentContrasenia();
+    //session_start();
+
+    if(isset($_SESSION['usuario'])){
+        //echo "Hay sesión";
+        $usuario = new Usuario();
+        $usuario->setUsuario($usuarioTemp, $usuarioTemp, $passTemp);
+        //include_once "dashboard.php";
+    }  else {
+        //echo "Login";
+        include_once "login.php";
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>

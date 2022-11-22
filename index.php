@@ -7,7 +7,7 @@
 
     if(isset($_SESSION['usuario'])){
         //echo "Hay sesión";
-        $usuario->setUsuario($usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario());
+        $usuario->setUsuario($usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentContrasenia());
         include_once "dashboard.php";
     } else if(isset($_POST['userSession']) && isset($_POST['passSession'])){
         //echo "Validacion de login";
@@ -19,7 +19,7 @@
             //echo "usuario valido";
             $usuarioSesion->setCurrentUsuario($userFormSession);
             $usuario->setUsuario($userFormSession, $userFormSession, $passFormSession);
-
+            $_SESSION['contrasenia'] = $passFormSession;
             include_once "dashboard.php";
         } else {
             //echo "correo/nickname y/o contraseña invalidos";

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,10 +26,10 @@
         <div class="header-2">
         <nav class="navbar" style="display: block">
                 <a href="dashboard.php">inicio</a>
-                <a href="login.php">categorias</a>
-                <a href="login.php">mas vendidos</a>
-                <a href="login.php">nuevos</a>
-                <a href="login.php">vistos anteriormente</a>
+                <a href="dashboard.php">categorias</a>
+                <a href="dashboard.php">mas vendidos</a>
+                <a href="dashboard.php">nuevos</a>
+                <a href="dashboard.php">vistos anteriormente</a>
             </nav>
         </div> > 
     </header>

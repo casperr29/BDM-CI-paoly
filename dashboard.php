@@ -1,16 +1,4 @@
-<?php 
-    include_once 'includes/usuario.php';
-    include_once 'includes/sesion_usuario.php';
 
-    if(isset($_SESSION['usuario'])){
-        //echo "Hay sesión";
-        $usuario->setUsuario($usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario());
-        include_once "dashboard.php";
-    }  else {
-        //echo "Login";
-        include_once "login.php";
-    }
-?>
 <!DOCTYPE html>
 <html>
 <head>

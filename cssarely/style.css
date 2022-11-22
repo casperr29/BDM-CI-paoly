@@ -205,6 +205,7 @@ a{
 img{
     max-width: 100%;
     height: auto;
+    text-align: right;
 }
 
 .bd-grid{
@@ -213,7 +214,7 @@ img{
     grid-template-columns: 100%;
     column-gap: 2rem;
     width: calc(100% - 2rem);
-    margin-left: 3rem;
+    margin-left: 5rem;
     margin-right: 1rem;
   }
 
@@ -232,14 +233,14 @@ img{
 
     padding-top: 1.5rem;
     justify-self: right;
-    width: 991px;
+    max-width: 1024px;
     height: 600px;
   }
   
   .home__img img{
     position: right;
     top: 0;
-    left: 0;
+    left: 500;
   }
   
   .home__data{
