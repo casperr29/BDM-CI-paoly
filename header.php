@@ -60,6 +60,7 @@
                     echo '<a href="perfil-admin.php" class="bx bx-user"></a>';
                 };?>
                 <a href="carrito.php" class="bx bx-cart"></a>
+                <a href="mensajes.php" class="bx bx-chat"></a>
 
             </div>
 

@@ -12,8 +12,8 @@ BEGIN
 SELECT 	`UsuarioID`,
 		`Rol`
 FROM `usuario`
-WHERE (`Correo` = Correo OR `Nickname` = pNickname)
-AND `Contrasenia` = pContrasenia
+WHERE (`pCorreo` = Correo OR `pNickname` = pNickname)
+AND `pContrasenia` = pContrasenia
 AND `Estatus_Usuario` = 1;
 END$$
 

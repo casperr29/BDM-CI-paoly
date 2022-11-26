@@ -140,15 +140,6 @@
     color:var(--black);
  }
  
- .Vendidos .box-container .box .qty{
-    width: 100%;
-    padding:1.2rem 1.4rem;
-    border-radius: .5rem;
-    border:var(--border);
-    margin:1rem 0;
-    font-size: 2rem;
- }
- 
  .Vendidos .box-container .box .price{
     position: absolute;
     top:1rem; left:1rem;

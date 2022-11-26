@@ -24,9 +24,7 @@
             <nav class="navbar">
                 <a href="dashboard.php">inicio</a>
                 <a href="dashboard.php">categorias</a>
-                <a href="dashboard.php">mas vendidos</a>
                 <a href="dashboard.php">nuevos</a>
-                <a href="dashboard.php">vistos anteriormente</a>
             </nav>
         </div> > 
     </header>
@@ -49,7 +47,7 @@
         <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
         <div class="name">Alice</div>
         <div class="price">100</div>
-        <input type="number" min="1" name="product_quantity" value="1" class="qty">
+
         <input type="hidden" name="product_name" value="Alice">
         <input type="hidden" name="product_price" value="100">
         <input type="hidden" name="product_image" value="image">
@@ -61,7 +59,7 @@
         <a href="producto.php"><img class="image" src="img/el_nombre_del_viento.jpg"></a>
         <div class="name">Patrick Rothfuss</div>
         <div class="price">70</div>
-        <input type="number" min="1" name="product_quantity" value="1" class="qty">
+
         <input type="hidden" name="product_name" value="Alice">
         <input type="hidden" name="product_price" value="70">
         <input type="hidden" name="product_image" value="image">
@@ -73,7 +71,7 @@
         <a href="producto.php"><img class="image" src="img/Alexander_Hamilton.jpg"></a>
         <div class="name">Hamilton</div>
         <div class="price">150</div>
-        <input type="number" min="1" name="product_quantity" value="1" class="qty">
+
         <input type="hidden" name="product_name" value="Alice">
         <input type="hidden" name="product_price" value="150">
         <input type="hidden" name="product_image" value="image">
@@ -85,7 +83,7 @@
         <a href="producto.php"><img class="image" src="img/heartstopper.jpg"></a>
         <div class="name">Volumen uno</div>
         <div class="price">10</div>
-        <input type="number" min="1" name="product_quantity" value="1" class="qty">
+
         <input type="hidden" name="product_name" value="Alice">
         <input type="hidden" name="product_price" value="10">
         <input type="hidden" name="product_image" value="image">
@@ -97,7 +95,7 @@
         <a href="producto.php"><img class="image" src="img/blue_period.jpg"></a>
         <div class="name">Blue Period</div>
         <div class="price">50</div>
-        <input type="number" min="1" name="product_quantity" value="1" class="qty">
+
         <input type="hidden" name="product_name" value="Alice">
         <input type="hidden" name="product_price" value="50">
         <input type="hidden" name="product_image" value="image">
@@ -109,7 +107,7 @@
         <a href="producto.php"><img class="image" src="img/libro_troll.jpg"></a>
         <div class="name">El libro troll</div>
         <div class="price">100</div>
-        <input type="number" min="1" name="product_quantity" value="1" class="qty">
+
         <input type="hidden" name="product_name" value="Alice">
         <input type="hidden" name="product_price" value="100">
         <input type="hidden" name="product_image" value="image">

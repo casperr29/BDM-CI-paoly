@@ -102,7 +102,7 @@
             </div>
         </div>
     </div>
-
+    <?php include 'comentarios.php' ?>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="jsarely/producto.js"></script>
     <script src="jsarely/checkout.js"></script>
