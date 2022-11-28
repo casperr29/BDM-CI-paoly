@@ -39,16 +39,16 @@ $baseUrl = 'http://localhost/BDM-CI-paoly';
       <input type="hidden" name="business" value="sb-wmaxm22790115@business.example.com">
       <input type="hidden" name="cmd" value="_xclick">
 
-      <label for="item_name" class="form-label">item_name</label>
-      <input type="text" name="item_name" id="" value="Carrito" required=""><br>
+      <!--label for="item_name" class="form-label">item_name</label-->
+      <input type="hidden" name="item_name" id="" value="Carrito" required=""><br>
 
-      <label for="amount" class="form-label">amount</label>
-      <input type="text" name="amount" id="" value="13.00" required=""><br>
+      <!--label for="amount" class="form-label">amount</label-->
+      <input type="hidden" name="amount" id="" value="13.00" required=""><br>
 
       <input type="hidden" name="currency_code" value="MXN">
 
-      <label for="quantity" class="form-label">quantity</label>
-      <input type="text" name="quantity" id="" value="1" required=""><br>
+      <!--label for="quantity" class="form-label">quantity</label-->
+      <input type="hidden" name="quantity" id="" value="1" required=""><br>
       <input type="hidden" name="item_number" value="1">
 
       <!-- datos extra  -->
