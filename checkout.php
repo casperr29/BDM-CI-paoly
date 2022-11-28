@@ -48,13 +48,6 @@
             <input type="email" id="email" name="email" placeholder="Ingrese su correo">
          </div>
          <div class="inputBox">
-            <span>Metodo de pago:</span>
-            <select id="payment" name="method">
-               <option value="credit card">Tarjeta de crédito</option>
-               <option value="paypal">Paypal</option>
-            </select>
-         </div>
-         <div class="inputBox">
             <span>Calle y número:</span>
             <input type="Text" id="calle" placeholder="Santiago Tapia #826">
          </div>
