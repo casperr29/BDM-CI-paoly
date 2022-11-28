@@ -51,8 +51,8 @@ if (strcmp($lines[0], "SUCCESS") == 0) {
     $quantity = $keyarray['quantity'];
     $item_name = $keyarray['item_name'];
     echo "<h1>¡Hemos procesado tu pago exitosamente!</h1> 
-    Recibimos $mc_gross Euros en concepto de: $quantity $item_name.<hr>
-    Vuelve a comprar dando clic <a href='$baseUrl/valoracion.php'>aquí</a>";
+    
+    Danos una opinion de los productos que acabas de adquirir dando clic <a href='$baseUrl/valoracion.php'>aquí</a>";
     return;
 } else if (strcmp($lines[0], "FAIL") == 0) {
 
