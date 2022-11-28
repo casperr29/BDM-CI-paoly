@@ -15,7 +15,9 @@
 
 </head>
 <body>
-   
+<?php
+$baseUrl = 'http://localhost/BDM-CI-paoly';
+?>  
 <?php include 'header.php'; ?>
 
 <div class="heading">
@@ -32,8 +34,25 @@
 
 <section class="checkout">
 
-   <form action="" method="post">
-      <h3>place your order</h3>
+   <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="form_pay">
+      <!-- datos que pide la api  -->
+      <input type="hidden" name="business" value="sb-wmaxm22790115@business.example.com">
+      <input type="hidden" name="cmd" value="_xclick">
+
+      <label for="item_name" class="form-label">item_name</label>
+      <input type="text" name="item_name" id="" value="Carrito" required=""><br>
+
+      <label for="amount" class="form-label">amount</label>
+      <input type="text" name="amount" id="" value="13.00" required=""><br>
+
+      <input type="hidden" name="currency_code" value="MXN">
+
+      <label for="quantity" class="form-label">quantity</label>
+      <input type="text" name="quantity" id="" value="1" required=""><br>
+      <input type="hidden" name="item_number" value="1">
+
+      <!-- datos extra  -->
+      <h3>datos de envio</h3>
       <div class="flex">
          <div class="inputBox">
             <span>Nombre completo:</span>
@@ -72,7 +91,17 @@
             <input type="number" id="pin_code" min="0" name="pin_code" placeholder="66548 ">
          </div>
       </div>
-      <input value="Hacer compra" class="btn" name="order_btn" onclick=vDatosIncompletosUsuario()>
+
+      <input type="hidden" name="lc" value="es_ES">
+      <input type="hidden" name="no_shipping" value="1">
+      <input type="hidden" name="image_url" value="logo2.png">
+      <input type="hidden" name="return" value="<?= $baseUrl ?>/receptor.php">
+      <input type="hidden" name="cancel_return" value="<?= $baseUrl ?>/dashboard.php">
+      <hr>
+
+      <button type="submit">Pagar ahora con Paypal!</button>
+      <!-- <input value="Hacer compra" class="btn" name="order_btn" onclick=vDatosIncompletosUsuario()> -->
+      
    </form>
 
 </section>

@@ -78,7 +78,8 @@
  .btn,
 .option-btn,
 .delete-btn,
-.white-btn{
+.white-btn,
+button{
    display: inline-block;
    margin-top: 1rem;
    padding:1rem 3rem;
@@ -91,13 +92,15 @@
 
 .btn:hover,
 .option-btn:hover,
-.delete-btn:hover{
+.delete-btn:hover,
+button{
    background-color: var(--black);
 }
 
 .option-btn,
 .white-btn,
-.btn{
+.btn,
+button{
    background-color: var(--dark-color);
 }
 

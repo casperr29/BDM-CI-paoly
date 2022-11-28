@@ -59,10 +59,7 @@
                 <div class="cuerpo">
                     <div class="texto">
                         Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
-                        <span class="tiempo">
-                            <i class="far fa-clock"></i>
-                            Hace 5 min
-                        </span>
+                        
                     </div>
                    
                 </div>
@@ -72,10 +69,7 @@
                 <div class="cuerpo">
                     <div class="texto">
                         Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
-                        <span class="tiempo">
-                            <i class="far fa-clock"></i>
-                            Hace 6 min
-                        </span>
+                        
                     </div>   
                 </div>
             </div>
