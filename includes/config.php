@@ -1,5 +1,8 @@
 <?php
 
+define("KEY_TOKEN", "APR.wqc-354*");
+define("MONEDA", "$");
+
 class DB{
     private $host;
     private $db;
@@ -13,7 +16,7 @@ class DB{
         $this->host = 'localhost';
         $this->db = 'bdm_ci';
         $this->user = 'root';
-        $this->password = 'Root';
+        $this->password = 'mysqlpass';
         $this->charset = 'utf8mb4';
 
     }

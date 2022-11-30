@@ -33,8 +33,25 @@ function vDatosIncompletosProducto(){
     
 }
 
-function vCarrito(){
-    const Toast = Swal.mixin({
+function vCarrito(usuario, id, precio, cantidad, token){
+
+  let url='includes/carrito.php'
+  let formData=new FormData()
+  formData.append('usuario', usuario)
+  formData.append('id', id)
+  formData.append('precio', precio)
+  formData.append('cantidad', cantidad)
+  formData.append('token', token)
+
+  fetch(url, {
+    method: 'POST',
+    body: formData,
+    mode: 'cors'
+  }).then(response=>response.json())
+  .then(data=>{
+    if(data.ok){
+
+      const Toast = Swal.mixin({
         toast: true,
         position: 'bottom-end',
         showConfirmButton: false,
@@ -50,5 +67,45 @@ function vCarrito(){
         icon: 'success',
         title: 'Producto añadido al carrito'
       })
+    }
+  })
+
+}
+
+function vWishlist(usuario, id, token){
+
+  let url='includes/wishlist.php'
+  let formData=new FormData()
+  formData.append('usuario', usuario)
+  formData.append('id', id)
+  formData.append('token', token)
+
+  fetch(url, {
+    method: 'POST',
+    body: formData,
+    mode: 'cors'
+  }).then(response=>response.json())
+  .then(data=>{
+    if(data.ok){
+
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Se añadio a tu lista de deseados'
+      })
+    }
+  })
+
 }
 

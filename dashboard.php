@@ -1,4 +1,17 @@
-
+<?php
+    include_once 'includes/config.php';
+    $db=new DB;
+    $con=$db->connect();
+    $sql=$con->prepare('SELECT 
+    libro.LibroID,
+    libro.Nombre_libro,
+    libro.Precio_libro,
+    media.imagen1
+    FROM libro
+    INNER JOIN media ON libro.LibroID=media.LibroID;');
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,82 +56,39 @@
 
 <div class="box-container">
 
-    <div class="box">
-        <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
-        <div class="name">Alice</div>
-        <div class="price">100</div>
+    <?php foreach($resultado as $row) {?>
+        <div class="box">
+            <?php 
+                $id=$row['LibroID'];
+                $imagen=$row['imagen1'];
 
-        <input type="hidden" name="product_name" value="Alice">
-        <input type="hidden" name="product_price" value="100">
-        <input type="hidden" name="product_image" value="image">
-        <button value="Favorito" name="wishlist" class="btn">Favorito</button>
-        <button value="Agregar al Carrito" name="cart" class="btn">Agregar al Carrito</button>
-    </div>
+                if(!file_exists($imagen)){
+                    $imagen="images/no-photo.jpg";
+                }
+            ?>
+            <a href="producto.php?id=<?php echo $row['LibroID']; ?>&token=<?php echo hash_hmac('sha1',$row['LibroID'], KEY_TOKEN); ?>">
+            <img class="image" src="<?php echo $imagen; ?>"></a>
+            <div class="name"><?php echo $row['Nombre_libro']; ?></div>
+            <div class="price">$<?php echo number_format($row['Precio_libro'],2,'.',','); ?></div>
 
-    <div class="box">
-        <a href="producto.php"><img class="image" src="img/el_nombre_del_viento.jpg"></a>
-        <div class="name">Patrick Rothfuss</div>
-        <div class="price">70</div>
-
-        <input type="hidden" name="product_name" value="Alice">
-        <input type="hidden" name="product_price" value="70">
-        <input type="hidden" name="product_image" value="image">
-        <button value="Favorito" name="wishlist" class="btn">Favorito</button>
-        <button value="Agregar al Carrito" name="cart" class="btn">Agregar al Carrito</button>
-    </div>
-
-    <div class="box">
-        <a href="producto.php"><img class="image" src="img/Alexander_Hamilton.jpg"></a>
-        <div class="name">Hamilton</div>
-        <div class="price">150</div>
-
-        <input type="hidden" name="product_name" value="Alice">
-        <input type="hidden" name="product_price" value="150">
-        <input type="hidden" name="product_image" value="image">
-        <button value="Favorito" name="wishlist" class="btn">Favorito</button>
-        <button value="Agregar al Carrito" name="cart" class="btn">Agregar al Carrito</button>
-    </div>
-
-    <div class="box">
-        <a href="producto.php"><img class="image" src="img/heartstopper.jpg"></a>
-        <div class="name">Volumen uno</div>
-        <div class="price">10</div>
-
-        <input type="hidden" name="product_name" value="Alice">
-        <input type="hidden" name="product_price" value="10">
-        <input type="hidden" name="product_image" value="image">
-        <button value="Favorito" name="wishlist" class="btn">Favorito</button>
-        <button value="Agregar al Carrito" name="cart" class="btn">Agregar al Carrito</button>
-    </div>
-
-    <div class="box">
-        <a href="producto.php"><img class="image" src="img/blue_period.jpg"></a>
-        <div class="name">Blue Period</div>
-        <div class="price">50</div>
-
-        <input type="hidden" name="product_name" value="Alice">
-        <input type="hidden" name="product_price" value="50">
-        <input type="hidden" name="product_image" value="image">
-        <button value="Favorito" name="wishlist" class="btn">Favorito</button>
-        <button value="Agregar al Carrito" name="cart" class="btn">Agregar al Carrito</button>
-    </div>
-
-    <div class="box">
-        <a href="producto.php"><img class="image" src="img/libro_troll.jpg"></a>
-        <div class="name">El libro troll</div>
-        <div class="price">100</div>
-
-        <input type="hidden" name="product_name" value="Alice">
-        <input type="hidden" name="product_price" value="100">
-        <input type="hidden" name="product_image" value="image">
-        <button value="Favorito" name="wishlist" class="btn">Favorito</button>
-        <button value="Agregar al Carrito" name="cart" class="btn">Agregar al Carrito</button>
-    </div>
+            <button value="Favorito" name="wishlist" class="btn" onclick="vWishlist(<?php echo $usuario->getID()?>, <?php echo $id;?>, '<?php echo $token_tmp; ?>')">Favorito</button>
+            <?php 
+            if (!is_null($row['Precio_libro'])) {?>
+            <button value="Agregar al Carrito" name="cart" class="btn" onclick="vCarrito(<?php echo $usuario->getID()?>, <?php echo $row['LibroID'];?>, <?php echo $row['Precio_libro']?>, 1, '<?php echo hash_hmac('sha1',$row['LibroID'], KEY_TOKEN); ?>')">Agregar al Carrito</button>
+            <?php }?>
+            <?php 
+            if (is_null($row['Precio_libro'])) {?>
+            <button value="Cotizar" name="cart" class="btn">Preguntar precio</button>
+            <?php }?>
+        </div>
+    <?php } ?>
   
 </div>
 
 
     </section>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="jsarely/checkout.js"></script>
 </body>
 </html>

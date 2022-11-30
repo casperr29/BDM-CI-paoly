@@ -32,6 +32,10 @@
             return $this->rol;
         }
 
+        public function getID(){
+            return $this->usuarioID;
+        }
+
         function obtenerUsuarios(){
             $query = $this->connect()->query('SELECT* FROM usuario');
 
@@ -44,5 +48,12 @@
 
             return $query;
         }
+
+        /*function realizarPedido(int $usuarioID, $Numero, $CodigoPostal, string $Calle, $Colonia, $Municipio, $Estado, $Pais){
+            $query=$this->connect()->prepare('CALL sp_RealizarPedido(:usuario, :calle, :numero, :colonia, :municipio, :codigopostal, :estado, :pais)');
+            query->execute(['usuario' => $usuarioID, 'calle' => $Calle,, 'numero' => $Numero,, 'colonia' => $Colonia,, 'municipio' => $Municipio, 'codigopostal' => $CodigoPostal, 'estado' => $Estado, 'pais' => $Pais]);
+
+            return $query;
+        }*/
     }
 ?>

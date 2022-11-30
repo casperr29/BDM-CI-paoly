@@ -6,7 +6,7 @@
             session_start();
         }
 
-        public function setCurrentUsuario(string $usuario){
+        public function setCurrentUsuario(string $usuario, $contrasenia){
             $_SESSION['usuario'] = $usuario;
             $_SESSION['contrasenia'] = $contrasenia;
         }

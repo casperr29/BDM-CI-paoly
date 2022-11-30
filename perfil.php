@@ -3,15 +3,52 @@
     include_once 'includes/sesion_usuario.php';
 
     $usuarioSesion = new UsuarioSesion();
-    $usuario = new Usuario();
+    $usuarioTemp = $usuarioSesion->getCurrentUsuario();
+    $passTemp = $usuarioSesion->getCurrentContrasenia();
+    //session_start();
 
     if(isset($_SESSION['usuario'])){
         //echo "Hay sesión";
-        $usuario->setUsuario($usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario(), $usuarioSesion->getCurrentUsuario());
-        include_once "perfil.php";
+        $usuario = new Usuario();
+        $usuario->setUsuario($usuarioTemp, $usuarioTemp, $passTemp);
+        //include_once "dashboard.php";
     }  else {
         //echo "Login";
         include_once "login.php";
+    }
+
+    include_once 'includes/config.php';
+    $db=new DB;
+    $con=$db->connect();
+
+    $sql=$con->prepare('SELECT count(UsuarioID) FROM usuario WHERE UsuarioID=:usuario');
+    $sql->execute(['usuario' => $usuario->getID()]);
+
+    if($sql->fetchColumn()>0){
+        $sql=$con->prepare('CALL sp_PerfilUsuario(:usuario, :rol)');
+        $sql->execute(['usuario' => $usuario->getID(), 'rol' => $usuario->getRol()]);
+        $row=$sql->fetch(PDO::FETCH_ASSOC);
+
+        $correo=$row['Correo'];
+        $nickname=$row['Nombre de usuario'];
+        $avatar=$row['Imagen de perfil'];
+        $nombre=$row['Nombre'];
+        $fecha_nacimiento=$row['Fecha de nacimiento'];
+        $fecha_admision=$row['Fecha de registro'];
+        $privacidad=$row['Privacidad'];
+
+        $sql=$con->prepare('SELECT
+        libro.LibroID,
+        media.imagen1,
+        lista_libro.ListaID,
+        lista.Usuario_lista
+        FROM Libro
+        INNER JOIN media ON libro.LibroID=media.LibroID
+        INNER JOIN lista_libro ON Libro.LibroID=lista_libro.LibroID
+        INNER JOIN lista ON lista_libro.ListaID=lista.ListaID
+        WHERE lista.Usuario_lista=:usuario;');
+        $sql->execute(['usuario' => $usuario->getID()]);
+        $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
     }
 ?>
 <!DOCTYPE html>
@@ -41,35 +78,35 @@
             <div class="img__container">
                 <img src="img/user.jpeg" alt="Anna Smith" />
             </div>
-            <h2>Anna Smith</h2>
-            <p>anna@example.com</p>
-
+            <h2><?php echo $nombre?></h2>
+            <p><?php echo $correo?></p>
+            <a href="editarperfil.php" class="btn">Editar datos</a>
 
         </div>
         <div class="right__col">
           <nav>
             <ul>
-              <li><a href="">Wishlist 1</a></li>
-              <li><a href="">Wishlist 2</a></li>
-              <li><a href="">Wishlist 3</a></li>
+              <li><a href="">Mi lista de deseados</a></li>
             </ul>
 
             <a href="perfil-vendedor.php" class="btn">Empieza a vender con nosotros</a>
           </nav>
 
           <div class="photos">
-            <div class="box" style="height: 20rem;">
-                <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
-            </div>
-            <div class="box" style="height: 20rem;">
-                <a href="producto.php"><img class="image" src="img/blue_period.jpg"></a>
-            </div>
-            <div class="box" style="height: 20rem;">
-                <a href="producto.php"><img class="image" src="img/castillo_vagabundo.jpg"></a>
-            </div>
-            <div class="box" style="height: 20rem;">
-                <a href="producto.php"><img class="image" src="img/el_nombre_del_viento.jpg"></a>
-            </div>
+            <?php foreach($resultado as $row) {?>
+                <div class="box" style="height: 20rem;">
+                    <?php 
+                        $id=$row['LibroID'];
+                        $imagen=$row['imagen1'];
+
+                        if(!file_exists($imagen)){
+                            $imagen="images/no-photo.jpg";
+                        }
+                    ?>
+                    <a href="producto.php?id=<?php echo $row['LibroID']; ?>&token=<?php echo hash_hmac('sha1',$row['LibroID'], KEY_TOKEN); ?>">
+                    <img class="image" src="<?php echo $imagen; ?>"></a>
+                </div>
+            <?php }?>
 
           </div>
         </div>

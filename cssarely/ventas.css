@@ -1,0 +1,113 @@
+:root{
+    --white: #fff;
+     --red: #fe3a29;
+     --pink1:#fca699;
+     --pink: #e2869b;
+     --dark-color: #c9729f;
+     --black: #583b7e;
+     --light-color: #ffe4aa;
+     --border: .1rem solid rgba(0, 0, 0, .1);
+     --border-hover: .1rem solid var(--black);
+     --box-shadow:0 .5rem 1rem rgba(0, 0, 0, .1);
+     }
+ 
+ 
+ *{
+     font-family: 'Poppins', sans-serif;
+     margin:0; padding:0;
+     box-sizing: border-box;
+     outline: none; border:none;
+     text-decoration: none;
+     transition:all .2s linear;
+ }
+ 
+ .header-2{
+    background:var(--pink);
+  }
+  
+  .header-2 .navbar{
+    text-align: center;
+  }
+  
+  .header-2 .navbar a{
+    color:#fff;
+    display: inline-block;
+    padding:1.2rem;
+    font-size: 1.7rem;
+  }
+  
+  .header-2 .navbar a:hover{
+    background:var(--dark-color);
+  }
+  
+  .header-2.active{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index: 1000;
+  
+  }
+
+.container{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+
+}
+select{
+    margin-top: 10px;
+    margin-left: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+select{
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid#CACACA;
+}
+select{
+    border-bottom-width: 2px;
+}
+
+
+.field button{
+    margin-left: 10px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+
+.field button{
+    color: #fff;
+    background-color:#c9729f;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.field button:hover{
+    background-color: #583b7e;
+}
+
+table {
+    margin-top: 10px;
+
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid var(--black);
+    font-size: 1.4rem;
+  }
+  
+  thead th {
+    width: 30%;
+    font-size: 2rem;
+  }
+  tbody td:nth-child(1) {
+    width: 30%;
+  }

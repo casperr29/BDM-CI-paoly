@@ -1,4 +1,60 @@
+<?php
+    include_once 'includes/config.php';
+    $db=new DB;
+    $con=$db->connect();
 
+    $id= isset($_GET['id']) ? $_GET['id'] : '';
+    $token= isset($_GET['token']) ? $_GET['token'] : '';
+
+    if($id==''||$token==''){
+        echo 'Error al procesar la petición';
+        exit;
+    } else {
+        $token_tmp=hash_hmac('sha1',$id,KEY_TOKEN);
+
+        if($token==$token_tmp){
+            $sql=$con->prepare('SELECT count(LibroID) FROM Libro WHERE LibroID=:id');
+            $sql->execute(['id' => $id]);
+            
+            if($sql->fetchColumn()>0){
+                $sql=$con->prepare('SELECT libro.Nombre_libro, libro.Descripcion_libro, libro.Precio_libro, libro.Valoracion, libro.Cantidad_disponibilidad, libro.Autor_libro, media.imagen1, media.imagen2, media.imagen3, media.video FROM Libro INNER JOIN media ON libro.LibroID=media.LibroID WHERE libro.LibroID=:id LIMIT 1');
+                $sql->execute(['id' => $id]);
+                $row=$sql->fetch(PDO::FETCH_ASSOC);
+                $nombre=$row['Nombre_libro'];
+                $descripcion=$row['Descripcion_libro'];
+                $precio=$row['Precio_libro'];
+                $valoracion=$row['Valoracion'];
+                $disponibilidad=$row['Cantidad_disponibilidad'];
+                $autor=$row['Autor_libro'];
+                $imagen1=$row['imagen1'];
+                $imagen2=$row['imagen2'];
+                $imagen3=$row['imagen3'];
+                $video=$row['video'];
+                /*$dir_images='images/productos/'.$id.'/';
+
+                $rutaImg=$dir_images.'principal.jpg';*/
+
+                if(!file_exists($imagen1)){
+                    $imagen1='images/no-photo.jpg';
+                }
+
+                /*$imagenes=array();
+                $dir=dir($dir_images);
+
+                while(($archivo=$dir->read())!=false){
+                    if($archivo!='principal.jpg'){
+                        $imagenes[]=$dir_images.$archivo;
+                    }
+                }
+                $dir->close();*/
+            }
+        }else{
+            echo 'Error al procesar la petición';
+            exit;
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,39 +98,39 @@
             <div class = "product-imgs">
                 <div class = "img-display">
                     <div class = "img-showcase">
-                        <img src = "img/freefall.jpg" >
-                        <img src = "img/libro_troll.jpg">
-                        <img src = "img/freefall.jpg">
-                        <img src = "img/libro_troll.jpg">
+                        <img src = "<?php echo $imagen1?>" >
+                        <img src = "<?php echo $imagen2?>">
+                        <img src = "<?php echo $imagen3?>">
+                        <img src = "<?php echo $video?>">
                     </div>
                 </div>
            
                 <div class = "img-select">
                     <div class = "img-item">
                         <a href = "#" data-id = "1">
-                            <img src = "img/freefall.jpg" >
+                            <img src = "<?php echo $imagen1?>" >
                         </a>
                     </div>
                     <div class = "img-item">
                         <a href = "#" data-id = "2">
-                            <img src = "img/libro_troll.jpg">
+                            <img src = "<?php echo $imagen2?>">
                         </a>
                     </div>                        
                     <div class = "img-item">                    
                         <a href = "#" data-id = "3">
-                            <img src = "img/freefall.jpg">
+                            <img src = "<?php echo $imagen3?>">
                         </a>
                     </div>
                     <div class = "img-item">
                         <a href = "#" data-id = "4">
-                            <img src = "img/libro_troll.jpg" >
+                            <img src = "<?php echo $video?>" >
                         </a>
                     </div>
                 </div>
             </div>
             <!-- card right -->
             <div class = "product-content">
-                <h2 class = "product-title">Freefall</h2>
+                <h2 class = "product-title"><?php echo $nombre?></h2>
 
                 <div class = "product-rating">
                     <i class = "fas fa-star"></i>
@@ -86,18 +142,28 @@
                 </div>
 
                 <div class = "product-price">
-                    <p class = "last-price">Precio: <span>$257.00</span></p>
+                    <!--<p class = "last-price">Precio: <span>$</span></p>-->
+                    <p class = "price">Precio: <?php echo MONEDA . number_format($precio, 2, '.',','); ?></p>
                 </div>
 
                 <div class = "product-detail">
                     <h2>descripcion: </h2>
-                    <p>PETER CAWDRON</p>
-                    <p>Have you ever had those dreams where you feel like you are falling, and then your entire nerveous system reacts and makes you shake in the most violent way possible? Well, this book is like that</p>
+                    <p><?php echo $autor?></p>
+                    <p><?php echo $descripcion?></p>
                 </div>
 
+                <button class="btn wish-btn" onclick="vWishlist(<?php echo $usuario->getID()?>, <?php echo $id;?>, '<?php echo $token_tmp; ?>')">Add to wishlist</button>
+
                 <div class = "purchase-info">
-                    <input type = "number" min = "0" value = "1">
-                    <button class="btn cart-btn" onclick=vCarrito()>Add to cart</button>
+                    <input id="cantidad" name="cantidad" type = "number" min = "0" max="<?php echo $row['Cantidad_disponibilidad']; ?>"value = "1">
+                    <?php 
+                    if (!is_null($row['Precio_libro'])) {?>
+                    <button class="btn cart-btn" onclick="vCarrito(<?php echo $usuario->getID()?>, <?php echo $id;?>, <?php echo $precio?>, cantidad.value, '<?php echo $token_tmp; ?>')">Add to cart</button>
+                    <?php }?>
+                    <?php 
+                    if (is_null($row['Precio_libro'])) {?>
+                    <button class="btn cart-btn" value="Cotizar" name="cart" class="btn">Ask!!</button>
+                    <?php }?>
                 </div>
             </div>
         </div>

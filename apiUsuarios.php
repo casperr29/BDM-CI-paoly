@@ -24,7 +24,7 @@
                         'fecha de nacimiento' => $row['FechaNacimiento'],
                         'fecha de registro' => $row['FechaAdmision'],
                         'privacidad' => $row['Privacidad'],
-                        'status' => $row['Estatus_Usuario']
+                        'status' => $row['Existencia_Usuario']
                     );
                     array_push($usuarios['items'], $item);
                 }
@@ -40,7 +40,7 @@
     if(!empty($_POST['email']) && !empty($_POST['nombre']) && !empty($_POST['nickname']) && !empty($_POST['fechaNacimiento']) && !empty($_POST['contrasenia'])){
         $usuario = new Usuario();
         
-        $emailForm = $_POST['nombre'];
+        $emailForm = $_POST['email'];
         $nicknameForm = $_POST['nickname'];
         $passForm = $_POST['contrasenia'];
         $nameForm = $_POST['nombre'];

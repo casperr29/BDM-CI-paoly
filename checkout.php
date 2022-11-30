@@ -1,3 +1,44 @@
+<?php
+   $baseUrl = 'http://localhost/BDM/BDM-CI-paoly';
+    include_once 'includes/config.php';
+    include_once 'includes/usuario.php';
+    include_once 'includes/sesion_usuario.php';
+
+    $Total=0;
+    $TotalPrecio=0;
+    $usuarioSesion = new UsuarioSesion();
+    $usuarioTemp = $usuarioSesion->getCurrentUsuario();
+    $passTemp = $usuarioSesion->getCurrentContrasenia();
+    //session_start();
+
+    if(isset($_SESSION['usuario'])){
+        //echo "Hay sesión";
+        $usuario = new Usuario();
+        $usuario->setUsuario($usuarioTemp, $usuarioTemp, $passTemp);
+        //include_once "dashboard.php";
+    }  else {
+        //echo "Login";
+        include_once "login.php";
+    }
+
+    $db=new DB;
+    $con=$db->connect();
+    $sql=$con->prepare('SELECT 
+    libro.Nombre_libro,
+    libro_carrito.LibroID,
+    libro_carrito.Precio_compra,
+    libro_carrito.Cantidad_compra,
+    libro_carrito.PrecioTotal_compra,
+    media.imagen1
+    FROM Carrito
+    INNER JOIN libro_carrito ON Carrito.CarritoID=libro_carrito.CarritoID
+    INNER JOIN libro ON libro_carrito.LibroID=libro.LibroID
+    INNER JOIN media ON libro.LibroID=media.LibroID
+    INNER JOIN usuario ON carrito.UsuarioID=usuario.UsuarioID
+    WHERE usuario.UsuarioID=:usuario AND Carrito.estatus_carrito=1;');
+    $sql->execute(['usuario' => $usuario->getID()]);
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +53,11 @@
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="cssarely/checkout.css">
+   <link rel="stylesheet" href="cssarely/carrito.css">
 
 </head>
 <body>
-<?php
-$baseUrl = 'http://localhost/BDM-CI-paoly';
-?>  
+
 <?php include 'header.php'; ?>
 
 <div class="heading">
@@ -25,10 +65,30 @@ $baseUrl = 'http://localhost/BDM-CI-paoly';
    <p> <a href="dashboard.php">Regresar al inicio</a></p>
 </div>
 
-<section class="display-order">
+<section class="shopping-cart">
 
-     <?php echo '<p class="empty">Tu carrito esta vacio</p>'; ?>
-   <div class="grand-total"> total a pagar: <span>$</span> </div>
+      <div class="box-container">
+         <?php foreach($resultado as $row) {?>
+            <div class="box" style="display: contents;"> 
+               <?php 
+                  $id=$row['LibroID'];
+                  $imagen=$row['imagen1'];
+
+                  if(!file_exists($imagen)){
+                     $imagen="images/no-photo.jpg";
+                  }
+               ?>
+               <a href="producto.php?id=<?php echo $row['LibroID']; ?>&token=<?php echo hash_hmac('sha1',$row['LibroID'], KEY_TOKEN); ?>">
+               <img class="image" src="<?php echo $imagen; ?>"></a>
+               <div class="name"><?php echo $row['Nombre_libro']; ?></div>
+               <div class="price">$<?php echo number_format($row['Precio_compra'],2,'.',','); ?></div>
+               <?php $Total= $row['Precio_compra']; $TotalPrecio=$TotalPrecio+$Total;?>
+            </div>
+         <?php } ?>
+      </div>
+      <div class="cart-total">
+         <p>total a pagar : <span>$ <?php echo number_format($TotalPrecio,2,'.',','); ?></span></p>
+      </div>
 
 </section>
 
@@ -43,7 +103,7 @@ $baseUrl = 'http://localhost/BDM-CI-paoly';
       <input type="hidden" name="item_name" id="" value="Carrito" required=""><br>
 
       <!--label for="amount" class="form-label">amount</label-->
-      <input type="hidden" name="amount" id="" value="13.00" required=""><br>
+      <input type="hidden" name="amount" id="" value="<?php echo $TotalPrecio; ?>" required=""><br>
 
       <input type="hidden" name="currency_code" value="MXN">
 

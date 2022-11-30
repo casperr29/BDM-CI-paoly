@@ -17,7 +17,7 @@
 
         if($usuario->usuarioExiste($userFormSession, $userFormSession, $passFormSession)){
             //echo "usuario valido";
-            $usuarioSesion->setCurrentUsuario($userFormSession);
+            $usuarioSesion->setCurrentUsuario($userFormSession, $passFormSession);
             $usuario->setUsuario($userFormSession, $userFormSession, $passFormSession);
             $_SESSION['contrasenia'] = $passFormSession;
             include_once "dashboard.php";

@@ -1,3 +1,45 @@
+<?php
+    include_once 'includes/config.php';
+    include_once 'includes/usuario.php';
+    include_once 'includes/sesion_usuario.php';
+
+    $TotalPrecio=0;
+    $usuarioSesion = new UsuarioSesion();
+    $usuarioTemp = $usuarioSesion->getCurrentUsuario();
+    $passTemp = $usuarioSesion->getCurrentContrasenia();
+    //session_start();
+
+    if(isset($_SESSION['usuario'])){
+        //echo "Hay sesión";
+        $usuario = new Usuario();
+        $usuario->setUsuario($usuarioTemp, $usuarioTemp, $passTemp);
+        //include_once "dashboard.php";
+    }  else {
+        //echo "Login";
+        include_once "login.php";
+    }
+
+    $db=new DB;
+    $con=$db->connect();
+    $sql=$con->prepare('SELECT
+    libro.LibroID,
+    libro.Nombre_libro,
+    libro.Autor_libro,
+    media.imagen1,
+    libro_carrito.Precio_compra,
+    orden.OrdenID,
+    orden.Estatus_orden
+    FROM Carrito 
+    INNER JOIN libro_carrito ON Carrito.CarritoID=libro_carrito.CarritoID
+    INNER JOIN libro ON libro_carrito.LibroID=libro.LibroID
+    INNER JOIN media ON libro.LibroID=media.LibroID
+    INNER JOIN orden ON Carrito.CarritoID=Orden.CarritoID
+    WHERE Carrito.Estatus_Carrito=0 AND Carrito.UsuarioID=:usuario;
+    
+    ');
+    $sql->execute(['usuario' => $usuario->getID()]);
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang= "en" >
 <head>
@@ -24,105 +66,28 @@
    <h1 class="title">Historial de compras</h1>
 
    <div class="box-container">
-
+   <?php foreach($resultado as $row) {?>
       <div class="box">
-        <a href="producto.php"><img class="image" src="img/freefall.jpg"></a>
-         <p> Libro : <span>Freefall</span> </p>
-         <p> Precio : <span>$200</span> </p>
-         <p> Autor : <span>Peter Cawdron</span> </p>
+            <?php 
+                $id=$row['LibroID'];
+                $imagen=$row['imagen1'];
+
+                if(!file_exists($imagen)){
+                    $imagen="images/no-photo.jpg";
+                }
+            ?>
+        <a href="producto.php">
+         <img class="image" src="<?php echo $imagen; ?>"></a>
+         <p> Libro : <span><?php echo $row['Nombre_libro']?></span> </p>
+         <p> Precio : <span>$<?php echo number_format($row['Precio_compra'],2,'.',','); ?></span> </p>
+         <p> Autor : <span><?php echo $row['Autor_libro']?></span> </p>
          <p> Número de pedido : <span>543123</span> </p>
          <p> Estado del pedido : <span>Entregado</span> </p>
          <p> Llegó el día <span>20/08/2022</span> </p>
 
 
       </div>
-
-      <div class="box">
-        <a href="producto.php"><img class="image" src="img/Alexander_Hamilton.jpg"></a>
-         <p> Libro : <span>Alexander Hamilton</span> </p>
-         <p> Precio : <span>$500</span> </p>
-         <p> Autor : <span>Ron Chernow</span> </p>
-         <p> Número de pedido : <span>543123</span> </p>
-         <p> Estado del pedido : <span>Entregado</span> </p>
-         <p> Llegó el día <span>20/08/2022</span> </p>
-
-
-      </div>
-
-      <div class="box">
-        <a href="producto.php"><img class="image" src="img/entrevista_vampiro.jpg"></a>
-         <p> Libro : <span>Entrevista con el vampiro</span> </p>
-         <p> Precio : <span>$99</span> </p>
-         <p> Autor : <span>Anne Rice</span> </p>
-         <p> Número de pedido : <span>543123</span> </p>
-         <p> Estado del pedido : <span>Entregado</span> </p>
-         <p> Llegó el día <span>20/08/2022</span> </p>
-
-
-      </div>
-
-      <div class="box">
-        <a href="producto.php"><img class="image" src="img/marnie.jpg"></a>
-         <p> Libro : <span>The art of: When Marnie was there</span> </p>
-         <p> Precio : <span>$99</span> </p>
-         <p> Autor : <span>Estudio Ghibli</span> </p>
-         <p> Número de pedido : <span>762980</span> </p>
-         <p> Estado del pedido : <span>Pendiente</span> </p>
-         <p> Llega el día <span>10/10/2022</span> </p>
-
-
-      </div>
-
-      <div class="box">
-        <a href="producto.php"><img class="image" src="img/castillo_vagabundo.jpg"></a>
-         <p> Libro : <span>El castillo ambulante</span> </p>
-         <p> Precio : <span>$130</span> </p>
-         <p> Autor : <span>Diana Wynne Jones</span> </p>
-         <p> Número de pedido : <span>762980</span> </p>
-         <p> Estado del pedido : <span>Pendiente</span> </p>
-         <p> Llega el día <span>10/10/2022</span> </p>
-
-
-      </div>
-
-      <div class="box">
-        <a href="producto.php"><img class="image" src="img/heartstopper.jpg"></a>
-         <p> Libro : <span>Heartstopper Vol. 1</span> </p>
-         <p> Precio : <span>$600</span> </p>
-         <p> Autor : <span>Alice Oseman</span> </p>
-         <p> Número de pedido : <span>982038</span> </p>
-         <p> Estado del pedido : <span>Pendiente</span> </p>
-         <p> Llega el día <span>30/09/2022</span> </p>
-
-
-      </div>
-
-      <div class="box">
-        <a href="producto.php"><img class="image" src="img/blue_period.jpg"></a>
-         <p> Libro : <span>Blue Period</span> </p>
-         <p> Precio : <span>$150</span> </p>
-         <p> Autor : <span>Tsubasa Yamaguchi</span> </p>
-         <p> Número de pedido : <span>548239</span> </p>
-         <p> Estado del pedido : <span>Pendiente</span> </p>
-         <p> Llega el día <span>23/10/2022</span> </p>
-
-
-      </div>
-
-      <div class="box">
-        <a href="producto.php"><img class="image" src="img/libro_troll.jpg"></a>
-         <p> Libro : <span>El libro troll</span> </p>
-         <p> Precio : <span>$99</span> </p>
-         <p> Autor : <span>Elrubius</span> </p>
-         <p> Número de pedido : <span>239642</span> </p>
-         <p> Estado del pedido : <span>Pendiente</span> </p>
-         <p> Llega el día <span>25/12/2022</span> </p>
-
-
-      </div>
-
-
-
+   <?php } ?>
    </div>
 
 </section>
